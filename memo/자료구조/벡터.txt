@@ -1,0 +1,69 @@
+package vector;
+import java.util.Scanner;
+class MyVector{
+	int [] arr = null;
+	int count = 0;
+	
+	void add(int data) {
+		if(count == 0) {
+			arr = new int[1];
+		}else {
+			int[] temp = arr;
+			arr =new int[count + 1];
+			for(int i = 0; i < count ;  i++) {
+				arr[i] = temp[i];
+			}
+			temp =null;
+		}
+		arr[count] = data;
+		count += 1;
+	}
+	int size() {
+		return count;
+	}
+	int get(int index) {
+		return arr[index];
+	}
+	void remove(int index) {
+		int temp[] = arr;
+		arr = new int[count -1];
+		int j = 0;
+		for(int i = 0; i < count; i++) {
+			if(i != index) {
+				arr[j] = temp[i];
+				j += 1;
+			}
+		}
+		count -= 1;
+	}
+	void printAll() {
+		for(int i = 0; i < count; i++) {
+			System.out.println(i  + ") " + arr[i]);
+		}
+		
+	}
+	
+	
+}
+public class Test01 {
+	public static void main(String[] args) {
+		MyVector vec = new MyVector();
+		Scanner scan = new Scanner(System.in);
+		while(true) {
+			System.out.println("1)추가 2)삭제 3)출력");
+			int sel = scan.nextInt();
+			if(sel == 1) {
+				System.out.println("추가할 값을 입력하세요. ");
+				int value = scan.nextInt();
+				vec.add(value);
+			}
+			else if(sel == 2) {
+				System.out.println("삭제할 인덱스를 입력하세요. ");
+				int index = scan.nextInt();
+				vec.remove(index);
+			}else if(sel == 3) {
+				vec.printAll();
+			}
+		}		
+	}
+}

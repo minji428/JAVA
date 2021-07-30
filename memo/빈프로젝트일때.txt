@@ -1,0 +1,2 @@
+만약 파일이 빈프로젝트가 되었을 때 마우스 오른쪽 IMPORT -> Existing Projects into Workspace -> Select root directory에서
+workspace의 java파일 가져온 후 Options에서 Copy projexts into workspace 체크한 뒤에 Finish 누르기
